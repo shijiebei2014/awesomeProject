@@ -15,11 +15,11 @@ func longestPalindrome2(str string) string {
 	}
 
 	res := str[0:1]
-	for i := len(str) - 2; i >= 0; i-- {
+	for i := len(str) - 1; i >= 0; i-- {
 		for j := i; j < len(str); j++ {
 			//fmt.Printf("i:%d j:%d\n", i, j)
 			dps[i][j] = str[i] == str[j] && (j-i < 3 || dps[i+1][j-1])
-			fmt.Printf("dp[%d][%d] = %t\n", i, j, dps[i][j])
+			//fmt.Printf("dp[%d][%d] = %t\n", i, j, dps[i][j])
 			if dps[i][j] && j-i+1 > len(res) {
 				res = str[i : j+1]
 			}
